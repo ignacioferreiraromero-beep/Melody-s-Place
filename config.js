@@ -5,7 +5,7 @@ window.CONFIG_TIENDA = {
 
   // WhatsApp de la tienda: código de país + número, solo dígitos, sin + ni espacios.
   // Paraguay: 595 y el celular sin el 0. Ejemplo: "595981123456"
-  whatsapp: "",
+  whatsapp: "595976282637",
 
   moneda: "Gs.",
 
@@ -13,7 +13,7 @@ window.CONFIG_TIENDA = {
 
   // Enlace CSV de tu hoja de Google (ver el paso 2 del LEEME.md).
   // Mientras esté vacío, la página muestra productos de ejemplo.
-  hojaCSV: "",
+  hojaCSV: "https://docs.google.com/spreadsheets/d/e/2PACX-1vQRXOqISr9gy1e6FkkQsfS_t418rEvFNPt0DNWwuCuJxlTMvNfUwg_eIk9lD9a55atrg1UDhwiEUw2l/pub?gid=1591856898&single=true&output=csv",
 
   // Imagen grande de cada categoría en la página principal (opcional).
   // Si no ponés una, se usa la foto del primer producto de esa categoría.
