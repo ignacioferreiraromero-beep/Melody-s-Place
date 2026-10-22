@@ -777,7 +777,7 @@ input, textarea, select, [contenteditable] { -webkit-user-select: text; user-sel
       '<div class="prow2"><span class="pprice">' + money(p.price) + '</span>' + stockBadge(p) + '</div>' +
       (p.desc ? '<p class="pdesc">' + esc(p.desc) + '</p>' : '') + (paras ? '<div class="plong">' + paras + '</div>' : '') +
       '<div class="pbuy">' + (n > 0 ? swatchesHtml(p) : '') + buy + '</div>' +
-      '<ul class="pnotes"><li>Armás tu pedido y lo enviás por WhatsApp.</li><li>La tienda confirma disponibilidad y coordina el pago y la entrega.</li><li>Retiro en tienda o envío.</li></ul></div>';
+      '<ul class="pnotes"><li>Armás tu pedido y lo enviás por WhatsApp.</li><li>La tienda confirma disponibilidad y coordina el pago y la entrega.</li><li>Pick-up o envío.</li></ul></div>';
     return '<div class="backbar">' + backHtml('#/categoria/' + enc, 'Volver a ' + p.category) + '</div>' +
       '<nav class="crumbs" aria-label="Ruta"><a data-nav href="#/">Inicio</a><span aria-hidden="true">&rsaquo;</span><a data-nav href="#/categoria/' + enc + '">' + esc(p.category) + '</a><span aria-hidden="true">&rsaquo;</span><span aria-current="page">' + esc(p.name) + '</span></nav>' +
       '<article class="pd">' + gHtml + info + '</article>' +
@@ -889,7 +889,7 @@ input, textarea, select, [contenteditable] { -webkit-user-select: text; user-sel
     cartLines().forEach(function (l) { out.push('• ' + l.qty + ' × ' + l.p.name + (l.color ? ' (Color: ' + l.color.name + ')' : '') + ' — ' + money(l.p.price) + ' c/u = ' + money(l.p.price * l.qty)); });
     out.push('', 'Total: ' + money(cartTotal()), '');
     if (buyer.name.trim()) out.push('Nombre: ' + buyer.name.trim());
-    out.push('Entrega: ' + (buyer.method === 'delivery' ? 'Envío' + (buyer.addr.trim() ? ' (' + buyer.addr.trim() + ')' : '') : 'Retiro en tienda'));
+    out.push('Entrega: ' + (buyer.method === 'delivery' ? 'Envío' + (buyer.addr.trim() ? ' (' + buyer.addr.trim() + ')' : '') : 'Pick-Up'));
     if (buyer.note.trim()) out.push('Comentario: ' + buyer.note.trim());
     return out.join('\n');
   }
@@ -910,7 +910,7 @@ input, textarea, select, [contenteditable] { -webkit-user-select: text; user-sel
     var hasWa = waNumber().length >= 8;
     body.innerHTML = receiptHtml(L) +
     '<label class="field"><span>Tu nombre</span><input id="bn" type="text" autocomplete="name" value="' + esc(buyer.name) + '"></label>' +
-    '<fieldset><legend>Entrega</legend><div class="seg"><label><input type="radio" name="method" value="pickup"' + (buyer.method !== 'delivery' ? ' checked' : '') + '> Retiro en tienda</label>' +
+    '<fieldset><legend>Entrega</legend><div class="seg"><label><input type="radio" name="method" value="pickup"' + (buyer.method !== 'delivery' ? ' checked' : '') + '> Pick-up</label>' +
     '<label><input type="radio" name="method" value="delivery"' + (buyer.method === 'delivery' ? ' checked' : '') + '> Envío</label></div></fieldset>' +
     '<label class="field" id="addrRow"' + (buyer.method === 'delivery' ? '' : ' hidden') + '><span>Dirección o zona</span><input id="ba" type="text" autocomplete="street-address" value="' + esc(buyer.addr) + '"></label>' +
     '<label class="field"><span>Comentario (opcional)</span><textarea id="bnote">' + esc(buyer.note) + '</textarea></label>' +
